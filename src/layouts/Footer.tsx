@@ -5,13 +5,12 @@ const Footer = () => {
     <footer className='py-10 text-sm text-center md:text-base'>
       <p>
         Designed
-        <span
-        
+        <Link
+          href='https://github.com/lamhoang1256 '
           className='font-semibold text-purple-600 mx-2'
         >
-
           Nguyen Hoang Lam
-        </span>
+        </Link>
          and Developed
         <Link
           href='https://github.com/SMTanimur'
