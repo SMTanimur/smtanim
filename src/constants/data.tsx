@@ -1,3 +1,5 @@
+import { FaFacebookF, FaTwitter, FaGithub, FaLinkedinIn } from "react-icons/fa";
+
 export const contacts = [
   {
     type: "github",
@@ -70,3 +72,28 @@ export const extensions = [
     description: "Comming soon",
   },
 ];
+
+export const socialIcons=[
+  {
+    name:"Facebook",
+    path:"https://web.facebook.com/smtanimur",
+    icon:<FaFacebookF/>
+  },
+  {
+    name:"Twitter",
+    path:"https://twitter.com/SMTanimur",
+    icon:<FaTwitter/>
+  },
+  {
+    name:"Github",
+    path:"https://github.com/SMTanimur",
+    icon:<FaGithub/>
+  },
+  {
+    name:"Linkedin",
+    path:"https://www.linkedin.com/in/s-m-tanimur-rahman-372894220",
+    icon:<FaLinkedinIn/>
+  },
+
+]
+  
