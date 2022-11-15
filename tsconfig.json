@@ -9,7 +9,6 @@
       "@utils/*": ["src/utils/*"],
       "@styles/*": ["src/styles/*"],
       "@modules/*": ["src/modules/*"],
-      "@types/*": ["src/types/*"],
       "@data/*": ["src/data/*"]
     },
     "target": "es5",
@@ -27,6 +26,11 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/button/LiquidButtonv2.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/components/button/LiquidButtonv2.jsx"
+  ],
   "exclude": ["node_modules"]
 }

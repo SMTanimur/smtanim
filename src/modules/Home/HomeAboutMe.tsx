@@ -43,7 +43,7 @@ const HomeAboutMe = () => {
             alt='avatar'
             width={350}
             height={350}
-            src='/avatar.png'
+            src='/avatar.jpg'
             className='rounded-lg aspect-square'
           />
         </div>
