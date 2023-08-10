@@ -9,6 +9,7 @@ import Head from 'next/head';
 import { ISkill } from '../types/common';
 import HomeMySkills from '@modules/Home/HomeMySkills';
 import HomeContact from '@modules/Home/HomeContact';
+import HomeFeatured from '@modules/Home/HomeFeatured';
 interface HomePageProps {
   projects: IProject[];
   skills: ISkill[];
@@ -23,13 +24,14 @@ interface HomePageProps {
       </Head>
 
       <LayoutHome className='-mt-16'>
-        <HomeCanvas />
+        {/* <HomeCanvas /> */}
         <HomeIntro />
         <div className=' flex justify-center items-start mt-10 lg:-mt-16 '>
           <SocialLink2></SocialLink2>
         </div>
         <HomeAboutMe/>
         <HomeMySkills skills={skills}/>
+        <HomeFeatured projects={projects} />
         <HomeContact/>
       </LayoutHome>
     </>

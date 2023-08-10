@@ -43,6 +43,11 @@ export default {
       of: [{ type: "image" }],
     },
     {
+      name: "videoDemo",
+      title: "Video Demo",
+      type: "string",
+    },
+    {
       name: "categories",
       title: "Categories",
       type: "array",
