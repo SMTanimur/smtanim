@@ -24,7 +24,7 @@ interface HomePageProps {
       </Head>
 
       <LayoutHome className='-mt-16'>
-        {/* <HomeCanvas /> */}
+        <HomeCanvas />
         <HomeIntro />
         <div className=' flex justify-center items-start mt-10 lg:-mt-16 '>
           <SocialLink2></SocialLink2>
