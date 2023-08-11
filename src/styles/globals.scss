@@ -22,6 +22,78 @@
   padding: 0 15px;
 }
 
+.article-content {
+  ol,
+  ul {
+    list-style: disc;
+  }
+  #overview + ul {
+    list-style-image: url("/icon-star.svg");
+  }
+  #features + ul {
+    list-style-image: url("/check.svg");
+  }
+  #main-technology-used + ul {
+    list-style-image: url("/icon-check-blue.svg");
+  }
+  details {
+    summary {
+      margin-bottom: 14px;
+      cursor: pointer;
+    }
+    img {
+      border-radius: 4px;
+    }
+  }
+  pre {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 !important;
+  }
+  a {
+    color: #5773ff;
+    font-weight: 500;
+    transition: box-shadow 0.1s ease 0s;
+    &:hover {
+      box-shadow: 0 2px 0 #5773ff;
+    }
+  }
+  img {
+    border-radius: 8px;
+  }
+  h2 {
+    font-weight: 800;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(90deg, #b0beff, #fed9ff);
+    &:nth-of-type(1) {
+      background-image: linear-gradient(to top left, #4dd78a, #20e3b2, #a2de6a);
+    }
+    &:nth-of-type(2) {
+      background-image: linear-gradient(90.06deg, #2cccff -4.45%, #22dfbf 104.12%);
+    }
+    &:nth-of-type(3) {
+      background-image: linear-gradient(90deg, #ff7170 2.34%, #ffe57f 45%);
+    }
+    &:nth-of-type(4) {
+      background-image: linear-gradient(45deg, #d66efd, #6a5af9);
+    }
+    &:nth-of-type(5) {
+      background-image: linear-gradient(90deg, #4ca5ff 2.34%, #b673f8 100.78%);
+    }
+    &:nth-of-type(6) {
+      background-image: linear-gradient(90deg, #fc6c8f, #ffb86c);
+    }
+    &:nth-of-type(7) {
+      background-image: linear-gradient(to top left, #fce1d0, #ffadd6, #e39bf7);
+    }
+  }
+}
+.image-reset > span {
+  display: block !important;
+}
+
 
 
 body,
