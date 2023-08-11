@@ -10,6 +10,8 @@ import { ISkill } from '../types/common';
 import HomeMySkills from '@modules/Home/HomeMySkills';
 import HomeContact from '@modules/Home/HomeContact';
 import HomeFeatured from '@modules/Home/HomeFeatured';
+import { GetStaticProps } from 'next';
+import { REVALIDATE_TIME, REVALIDATE_TIME_ERROR } from '@constants/global';
 interface HomePageProps {
   projects: IProject[];
   skills: ISkill[];
@@ -37,14 +39,20 @@ interface HomePageProps {
     </>
   );
 }
-export async function getStaticProps() {
-  const projects = await sanityClient.fetch(`*[_type == "project" && featured == true]`);
-  const skills = await sanityClient.fetch(`*[_type == "skill"]`);
-  return {
-    props: {
-      projects,
-      skills,
-    },
-  };
-}
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const projects = await sanityClient.fetch(`*[_type == "project" && featured == true]`);
+    const skills = await sanityClient.fetch(`*[_type == "skill"]`);
+    return {
+      props: { projects, skills },
+      revalidate: REVALIDATE_TIME
+    };
+  } catch (error) {
+    return {
+      props: { projects: [], skills: [] },
+      revalidate: REVALIDATE_TIME_ERROR,
+      notFound: true
+    };
+  }
+};
 export default Home

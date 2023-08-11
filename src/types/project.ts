@@ -7,6 +7,13 @@ export interface IProjectImages {
   };
 }
 
+export interface ISanityImage {
+  _type: string;
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+}
 export interface IProject {
   _createdAt: string;
   _id: string;
@@ -23,14 +30,8 @@ export interface IProject {
     _ref: string;
     _type: string;
   }[];
-  images: IProjectImages[];
-  mainImage: {
-    _type: string;
-    asset: {
-      _ref: string;
-      _type: string;
-    };
-  };
+  images: string[];
+  mainImage: ISanityImage;
   slug: {
     _type: string;
     current: string;

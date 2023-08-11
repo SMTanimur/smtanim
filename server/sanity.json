@@ -1,11 +1,11 @@
 {
   "root": true,
+  "api": {
+    "dataset": "production",
+    "projectId": "usp5cvgo"
+  },
   "project": {
     "name": "smtanimur-main"
-  },
-  "api": {
-    "projectId": "usp5cvgo",
-    "dataset": "production"
   },
   "plugins": [
     "@sanity/base",

@@ -1,3 +1,4 @@
 import LinkTargetBlank from "./LinkTargetBlank";
+import WrapLink from "./WrapLink";
 
-export { LinkTargetBlank };
+export { LinkTargetBlank, WrapLink };

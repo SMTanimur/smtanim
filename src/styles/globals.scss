@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Poppins:wght@700&display=swap");
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -25,6 +24,13 @@
 .article-content {
   ol,
   ul {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  ol {
+    list-style: decimal;
+  }
+  ul {
     list-style: disc;
   }
   #overview + ul {
@@ -45,10 +51,40 @@
       border-radius: 4px;
     }
   }
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+  }
   pre {
-    padding-left: 0;
-    padding-right: 0;
-    margin: 0 !important;
+    padding: 0;
+    margin: 14px 0 !important;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  p code,
+  li code {
+    color: #d2cff6;
+    font-weight: 700;
+    font-size: 17.5px;
+    &:after,
+    &:before {
+      content: "`";
+    }
+  }
+  pre code {
+    padding: 20px !important;
+    font-size: 16px;
+    font-family: "JetBrains Mono", monospace;
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+      margin-top: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #5a6072;
+      border-radius: 0.25rem;
+      border: 0.125rem solid transparent;
+    }
   }
   a {
     color: #5773ff;
@@ -66,7 +102,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    background-image: linear-gradient(90deg, #b0beff, #fed9ff);
+    background-image: linear-gradient(45deg, #d66efd, #6a5af9);
     &:nth-of-type(1) {
       background-image: linear-gradient(to top left, #4dd78a, #20e3b2, #a2de6a);
     }
@@ -77,7 +113,7 @@
       background-image: linear-gradient(90deg, #ff7170 2.34%, #ffe57f 45%);
     }
     &:nth-of-type(4) {
-      background-image: linear-gradient(45deg, #d66efd, #6a5af9);
+      background-image: linear-gradient(to right, #c084fc, #ec4899);
     }
     &:nth-of-type(5) {
       background-image: linear-gradient(90deg, #4ca5ff 2.34%, #b673f8 100.78%);
@@ -88,13 +124,88 @@
     &:nth-of-type(7) {
       background-image: linear-gradient(to top left, #fce1d0, #ffadd6, #e39bf7);
     }
+    &:nth-of-type(8) {
+      background-image: linear-gradient(to right, #ec4899, #eab308);
+    }
+  }
+  p {
+    margin: 0;
   }
 }
 .image-reset > span {
   display: block !important;
 }
 
+.btn {
+  @apply py-3 rounded-lg px-7;
+}
+.btn-effect {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.btn-effect:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: auto;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background-color: white;
+  opacity: 0.1;
+  z-index: -1;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.btn-effect:hover:before {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
 
+.pagePagination li {
+  display: inline-block;
+}
+.pagePagination button {
+  display: inline-block;
+}
+.pagePagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 40px;
+  padding: 0;
+  list-style-type: none;
+}
+.pagePagination button {
+  display: inline-block;
+  padding: 0 18px;
+  vertical-align: middle;
+  line-height: 40px;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  font-size: 15px;
+  margin: 0 0 0 -1px !important;
+  font-weight: 500;
+  transition: all 250ms ease-in;
+}
+.paginationContent {
+  min-height: 100px;
+  margin-top: 50px;
+  font-size: 20px;
+  color: #20232a;
+}
+.paginateButton {
+  line-height: 42px;
+}
+.paginateButton:disabled {
+  cursor: not-allowed;
+}
+.pagePagination button.active {
+  @apply bg-purple9c text-white rounded;
+}
 
 body,
 .customScrollbar {

@@ -1,15 +1,15 @@
 
 import { ArticleContent } from "@components/article";
+import { Meta } from "@components/meta";
 import { Heading } from "@components/text";
+import { REVALIDATE_TIME, REVALIDATE_TIME_ERROR } from "@constants/global";
 import LayoutHome from "@layouts/HomeLayout";
 import { ProjectImageSlider } from "@modules/project";
+import { getMdxSource } from "@utils/helper";
 import sanityClient from "@utils/sanityClient";
+import { sanityImgCard } from "@utils/sanityImgUrl";
+import { GetStaticPaths, GetStaticPropsContext } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import Head from "next/head";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeHighlight from "rehype-highlight";
-import rehypeSlug from "rehype-slug";
 import { IProject } from "src/types";
 
 
@@ -20,63 +20,41 @@ interface ProjectDetailsPageProps {
 
 const ProjectDetailsPage = ({ project, mdxSource }: ProjectDetailsPageProps) => {
   return (
-    <>
-      <Head>
-        <title>{project.title}</title>
-      </Head>
-      <LayoutHome>
-        <div className="layout-container">
-          <section className="max-w-[900px] mt-4 mx-auto">
-            <Heading>{project.title}</Heading>
-            <ProjectImageSlider images={project.images} className="my-6"></ProjectImageSlider>
-            <p className="text-lg">{project.description}</p>
-            <ArticleContent mdxSource={mdxSource} />
-          </section>
-        </div>
-      </LayoutHome>
-    </>
+    <LayoutHome>
+      <Meta
+        title={project.title}
+        image={sanityImgCard(project.mainImage)}
+        description={project.description}
+      />
+      <div className="layout-container">
+        <section className="max-w-[900px] mt-4 mx-auto">
+          <Heading>{project.title}</Heading>
+          <ProjectImageSlider images={project.images} className="my-6" />
+          <p className="text-lg">{project.description}</p>
+          <ArticleContent mdxSource={mdxSource} />
+        </section>
+      </div>
+    </LayoutHome>
   );
 };
 
-export async function getStaticProps(context: any) {
-  const { slug = "" } = context.params;
-  const project = await sanityClient.fetch(
-    `
-    *[_type == "project" && slug.current == $slug][0]
-  `,
-    { slug }
-  );
-  const mdxSource = await serialize(project.content, {
-    mdxOptions: {
-      rehypePlugins: [
-        rehypeSlug,
-        [
-          rehypeAutolinkHeadings,
-          {
-            properties: { className: ["anchor"] },
-          },
-          { behaviour: "wrap" },
-        ],
-        rehypeHighlight,
-      ],
-    },
-  });
+export const getStaticPaths: GetStaticPaths = () => {
   return {
-    props: {
-      project,
-      mdxSource,
-    },
+    paths: [],
+    fallback: "blocking"
   };
-}
+};
 
-export async function getStaticPaths() {
-  const paths = await sanityClient.fetch(
-    `*[_type == "project" && defined(slug.current)][].slug.current`
-  );
-  return {
-    paths: paths.map((slug: string) => ({ params: { slug } })),
-    fallback: false,
-  };
-}
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
+  const slug = params?.slug;
+  try {
+    const queryRef = `*[_type == "project" && slug.current == $slug][0]`;
+    const project = await sanityClient.fetch(queryRef, { slug });
+    const mdxSource = await getMdxSource(project.content);
+    return { props: { project, mdxSource }, revalidate: REVALIDATE_TIME };
+  } catch (error) {
+    return { props: {}, revalidate: REVALIDATE_TIME_ERROR, notFound: true };
+  }
+};
 
 export default ProjectDetailsPage;

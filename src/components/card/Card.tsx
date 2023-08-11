@@ -1,5 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
+import { Image } from "@components/image";
+import { WrapLink } from "@components/link";
+
 
 interface CardProps {
   title: string;
@@ -12,24 +13,20 @@ interface CardProps {
 const Card = ({ image, path, slug, title, description }: CardProps) => {
   return (
     <div className="overflow-hidden border border-gray-600 rounded-xl bg-linearCard">
-      <Link href={path}
-      className="overflow-hidden rounded-xl"
-      >
-          <Image
-            alt={slug}
-            width={600}
-            height={350}
-            src={image}
-            className="object-cover object-top transition-all duration-300 hover:scale-105"
-          />
-      </Link>
+      <WrapLink href={path} className="overflow-hidden rounded-xl">
+        <Image
+          alt={slug}
+          width={600}
+          height={350}
+          src={image}
+          className="object-cover object-top h-[220px] transition-all duration-300 hover:scale-105"
+        />
+      </WrapLink>
       <div className="p-4 pt-3">
-        <Link href={path}
-         className="text-lg font-bold text-green82"
-        >
+        <WrapLink href={path} className="text-lg font-bold line-clamp-2 text-green82">
           {title}
-        </Link>
-        <p className="mt-2">{description}</p>
+        </WrapLink>
+        <p className="mt-2 line-clamp-2">{description}</p>
       </div>
     </div>
   );

@@ -6,12 +6,12 @@ export default {
     {
       name: "title",
       title: "Title",
-      type: "string",
+      type: "string"
     },
     {
       name: "description",
       title: "Description",
-      type: "string",
+      type: "string"
     },
     {
       name: "slug",
@@ -19,68 +19,68 @@ export default {
       type: "slug",
       options: {
         source: "title",
-        maxLength: 96,
-      },
+        maxLength: 96
+      }
     },
     {
       name: "author",
       title: "Author",
       type: "reference",
-      to: { type: "author" },
+      to: { type: "author" }
     },
     {
       name: "mainImage",
       title: "Main image",
       type: "image",
       options: {
-        hotspot: true,
-      },
+        hotspot: true
+      }
     },
     {
       name: "images",
       title: "Images",
       type: "array",
-      of: [{ type: "image" }],
+      of: [{ type: "string" }]
     },
     {
       name: "videoDemo",
       title: "Video Demo",
-      type: "string",
+      type: "string"
     },
     {
       name: "categories",
       title: "Categories",
       type: "array",
-      of: [{ type: "reference", to: { type: "skill" } }],
+      of: [{ type: "reference", to: { type: "skill" } }]
     },
     {
       name: "publishedAt",
       title: "Published at",
-      type: "datetime",
+      type: "datetime"
     },
     {
       name: "featured",
       title: "Featured",
       type: "boolean",
-      default: false,
+      default: false
     },
     {
       name: "content",
       title: "content",
-      type: "markdown",
-    },
+      type: "markdown"
+    }
   ],
   preview: {
     select: {
       title: "title",
       author: "author.name",
-      media: "mainImage",
+      media: "mainImage"
     },
     prepare(selection) {
       const { author } = selection;
       return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`,
+        subtitle: author && `by ${author}`
       });
-    },
-  },
+    }
+  }
 };

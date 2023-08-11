@@ -1,26 +1,26 @@
 import classNames from "@utils/className";
-import { sanityImgUrl } from "@utils/sanityImgUrl";
-import Image from "next/image";
 import { MouseEvent, useState } from "react";
-import { IProjectImages } from "src/types";
+
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 interface ProjectImageSliderProps {
-  images: IProjectImages[];
+  images: string[];
   className?: string;
 }
 
 const ProjectImageSlider = ({ images, className = "" }: ProjectImageSliderProps) => {
   const [indexActive, setIndexActive] = useState(0);
   const [imageActiveState, setImageActiveState] = useState({
-    backgroundImage: `url(${sanityImgUrl(images[indexActive]).width(1300).url()})`,
+    backgroundImage: `url(${images[indexActive]})`,
     backgroundPosition: "0% 0%",
-    backgroundSize: "cover",
+    backgroundSize: "100%"
   });
   const handleChooseActive = (index: number) => {
     setIndexActive(index);
     setImageActiveState({
-      ...imageActiveState,
-      backgroundImage: `url(${sanityImgUrl(images[index]).width(1200).url()})`,
+      backgroundPosition: "0% 0%",
+      backgroundSize: "100%",
+      backgroundImage: `url(${images[index]})`
     });
   };
   const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
@@ -30,21 +30,20 @@ const ProjectImageSlider = ({ images, className = "" }: ProjectImageSliderProps)
     setImageActiveState({
       ...imageActiveState,
       backgroundPosition: `${x}% ${y}%`,
-      backgroundSize: "initial",
+      backgroundSize: "initial"
     });
   };
   const handleMouseLeave = () => {
     setImageActiveState({
       ...imageActiveState,
       backgroundPosition: "0% 0%",
-      backgroundSize: "cover",
+      backgroundSize: "100%"
     });
   };
-
   return (
     <div className={className}>
       <div
-        className="object-cover object-top w-full overflow-hidden bg-no-repeat bg-cover border border-gray-600 rounded-lg aspect-video image-reset bg-linearPurple2 cursor-zoom-in"
+        className="object-top w-full overflow-hidden bg-no-repeat border border-gray-600 rounded-lg aspect-video image-reset cursor-zoom-in"
         style={imageActiveState}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -52,7 +51,7 @@ const ProjectImageSlider = ({ images, className = "" }: ProjectImageSliderProps)
       <div className="relative flex gap-2 py-3 overflow-x-auto customScrollbar">
         {images.map((image, index) => (
           <div
-            key={image._key}
+            key={index}
             className={classNames(
               "inline-block rounded-md overflow-hidden transition-all duration-200 cursor-pointer w-20 h-20 bg-linearCard flex-shrink-0 border-2",
               indexActive === index ? " border-[#00ffea]" : "border-gray-600"
@@ -60,12 +59,12 @@ const ProjectImageSlider = ({ images, className = "" }: ProjectImageSliderProps)
             onClick={() => handleChooseActive(index)}
             onMouseEnter={() => handleChooseActive(index)}
           >
-            <Image
-              src={sanityImgUrl(image).width(200).url()}
-              alt="project-preview"
+            <LazyLoadImage
+              src={image}
+              alt={`image-${index}`}
               width={200}
               height={200}
-              className="object-cover object-top"
+              className="object-cover object-top w-full h-full"
             />
           </div>
         ))}
