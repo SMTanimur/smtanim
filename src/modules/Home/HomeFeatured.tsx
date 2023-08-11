@@ -1,8 +1,8 @@
 import { Card } from "@components/card";
+import { WrapLink } from "@components/link";
 import { Heading } from "@components/text";
 import { PATH } from "@constants/path";
-import { sanityImgUrl } from "@utils/sanityImgUrl";
-import Link from "next/link";
+import { sanityImgCard } from "@utils/sanityImgUrl";
 import { IProject } from "src/types";
 
 
@@ -11,7 +11,6 @@ interface HomeFeaturedProps {
 }
 
 const HomeFeatured = ({ projects }: HomeFeaturedProps) => {
-  console.log(projects);
   return (
     <section className="py-10">
       <div className="layout-container">
@@ -26,25 +25,19 @@ const HomeFeatured = ({ projects }: HomeFeaturedProps) => {
               title={project.title}
               slug={project.slug.current}
               path={`${PATH.project}/${project.slug.current}`}
-              image={sanityImgUrl(project.mainImage)
-                .width(600)
-                .height(350)
-                .focalPoint(0, 0)
-                .crop("focalpoint")
-                .fit("crop")
-                ?.url()}
+              image={sanityImgCard(project.mainImage)}
               description={project.description}
             />
           ))}
         </div>
-        <Link href={PATH.project}>
-          <button className="block py-3 mx-auto mt-6 rounded-lg bg-green82 px-7 bg-linearPurple">
-            View more
-          </button>
-        </Link>
+        <WrapLink href={PATH.project}>
+          <button className="block mx-auto mt-6 btn btn-effect bg-linearPurple">View more</button>
+        </WrapLink>
       </div>
     </section>
   );
 };
+
+
 
 export default HomeFeatured;
