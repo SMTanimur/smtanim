@@ -29,7 +29,7 @@ interface HomePageProps {
         <HomeCanvas />
         <HomeIntro />
         <div className=' flex justify-center items-start mt-10 lg:-mt-16 '>
-          <SocialLink2></SocialLink2>
+          <SocialLink2/>
         </div>
         <HomeAboutMe/>
         <HomeMySkills skills={skills}/>
