@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![image](https://github.com/SMTanimur/smtanim/assets/80884335/bb211a98-34bb-4230-80c5-c84a099d19a9)# SMTanimur-portfolio
+A simple portfolio website to showcase your work and projects.
 
-## Getting Started
+## Overview
+- Official website: [smtanimur](https://smtanimur.vercel.app/)
+- Author: SM Tanimur Rahman ( [@SMTanimur](https://github.com/SMTanimur) )
 
-First, run the development server:
+## Preview
 
-```bash
-npm run dev
-# or
-yarn dev
+![HomeLanding](https://github.com/SMTanimur/smtanim/assets/80884335/1e27ba55-e3b8-430f-87fa-c014195cef11)
+
+
+## Resources
+
+GithubUrl : [url](https://github.com/SMTanimur/smtanim)
+##  Main technology used
+- Nextjs 13, Typescript
+- Tailwindcss
+- Sanity (backend)
+- Framer-motion (Animation Canvas)
+- Other: emailjs-com, react-lazy-load-image-component, ...
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
+NEXT_PUBLIC_SANITY_PROJECT_ID =
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# See: https://www.emailjs.com/docs/examples/reactjs
+NEXT_PUBLIC_EMAILJS_SERVICE_ID =
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID = 
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY = 
+```
+## Screenshots
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+<details>
+ <summary>Home Page</summary>
+ <p>
+   
+![HomeLanding](https://github.com/SMTanimur/smtanim/assets/80884335/6bda7008-5978-4ff0-a5cd-d5c7ab8c6569)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+ </p>
+</details>
+<details>
+ <summary>Project Page</summary>
+ <p>
+   
+![projectPage](https://github.com/SMTanimur/smtanim/assets/80884335/547152cf-dab1-4b1b-b837-f387c4ba6a7f)
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ </p>
+</details>
+<details>
+ <summary>Project details page</summary>
+ <p>
+   
+![projectDetails](https://github.com/SMTanimur/smtanim/assets/80884335/eeb05748-6a1a-4790-a0e8-9f3b28de3560)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ </p>
+</details>
