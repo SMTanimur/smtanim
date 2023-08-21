@@ -38,6 +38,4 @@ const HomeFeatured = ({ projects }: HomeFeaturedProps) => {
   );
 };
 
-
-
 export default HomeFeatured;
