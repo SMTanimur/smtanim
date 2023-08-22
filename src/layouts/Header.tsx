@@ -73,7 +73,7 @@ const Header = () => {
             <li>
               <Link
                 target='_blank'
-                href='https://drive.google.com/drive/u/0/folders/10zOY41obIDEN_OGUDUh4LVy6_u4PnY1C'
+                href='https://drive.google.com/file/d/19llCKYmBA1i5g1Ru2xmC4wjHpVVVruyx/view?usp=drive_link'
                 className=' flex'
                 rel='noreferrer'
               >
