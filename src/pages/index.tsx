@@ -12,7 +12,7 @@ import HomeContact from '@modules/Home/HomeContact';
 import HomeFeatured from '@modules/Home/HomeFeatured';
 import { GetStaticProps } from 'next';
 import { REVALIDATE_TIME, REVALIDATE_TIME_ERROR } from '@constants/global';
-import { Title } from '@components/text';
+
 interface HomePageProps {
   projects: IProject[];
   skills: ISkill[];
@@ -27,7 +27,7 @@ interface HomePageProps {
       </Head>
 
       <LayoutHome className='-mt-16'>
-        {/* <HomeCanvas /> */}
+        <HomeCanvas />
         <HomeIntro />
         <div className=' flex justify-center items-start mt-10 lg:-mt-16 '>
           <SocialLink2/>
