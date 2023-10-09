@@ -14,3 +14,10 @@ export interface ISkill {
   _type: string;
   _updatedAt: string;
 }
+export type IImage={
+  _type: string;
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+}
