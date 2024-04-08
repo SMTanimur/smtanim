@@ -30,7 +30,7 @@ const ProjectsPage = ({ allProjects }: ProjectsPageProps) => {
     <LayoutHome>
       <Meta title="Projects" />
       <section className="mt-20 layout-container">
-        <div className="text-center">
+        <div className=" my-16 ">
           <Heading>Projects</Heading>
         </div>
         <div className="grid gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3">

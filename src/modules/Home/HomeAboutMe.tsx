@@ -38,13 +38,13 @@ const HomeAboutMe = () => {
             </button>
           </div>
         </div>
-        <div className='flex justify-center flex-1 maxsm:max-w-[250px]'>
+        <div className='flex justify-center max-h-[350px] flex-1 maxsm:max-w-[250px]'>
           <Image
             alt='avatar'
             width={350}
             height={350}
-            src='/avatar.jpg'
-            className='rounded-lg aspect-square'
+            src='/me.png'
+            className='rounded-lg   object-cover content-center bg-no-repeat'
           />
         </div>
       </div>
