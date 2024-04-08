@@ -1,50 +1,50 @@
-import { Heading } from '@components/text';
-import Image from 'next/image';
-import Link from 'next/link';
+/* eslint-disable react/no-unescaped-entities */
+import { Heading } from "@components/text";
+import Image from "next/image";
+import Link from "next/link";
 
 const HomeAboutMe = () => {
   return (
-    <section className='layout-container '>
-      <div className=' flex flex-col-reverse items-center justify-between gap-8 py-10 lg:flex-row lg:py-20'>
-        <div className='w-full max-w-[700px]'>
+    <section className="layout-container ">
+      <div className=" flex flex-col-reverse items-center justify-between gap-8 py-10 lg:flex-row lg:py-20">
+        <div className="w-full max-w-[700px]">
           <Heading>About Me</Heading>
-          <p className='max-w-[650px] my-6 leading-[34px] text-lg'>
-            Good day, everyone! I&apos;m SM Tanimur Rahman,and I&apos;m from
-            Bangladesh. I&apos;m Fresher Full-Stack Developer. I&apos;m often
-            praised for my creativity and independent working skills. I always
-            put my heart and soul into every single website that I develop. I
-            guess that&apos;s all I have to share about myself. Thank you for
-            reading!
+          <p className="max-w-[650px] my-6 leading-[34px] text-lg">
+            Hello! I'm Tanim, a passionate self-taught Full Stack developer from
+            Bangladesh. I build things for the web & mobile. I develop web
+            applications, mobile applications & desktop applications. Passionate
+            about new technologies and problem-solving. I am available for any
+            kind of job opportunity that suits my interests.
           </p>
-          <div className='flex flex-col gap-5 lg:flex-row'>
-            <div className='font-medium'>2021 - 2022 :</div>
-            <div className='flex gap-3'>
+          <div className="flex flex-col gap-5 lg:flex-row">
+            <div className="font-medium">2021 - 2022 :</div>
+            <div className="flex gap-3">
               <div>
-                <h3 className='font-semibold'>
+                <h3 className="font-semibold">
                   PROFESSIONAL FULL-STACK DEVELOPER
                 </h3>
               </div>
             </div>
           </div>
-          <div className='flex mt-6 gap-x-3'>
+          <div className="flex mt-6 gap-x-3">
             <Link
-              className='py-3 rounded-lg px-7 bg-linearOrangee'
-              href='https://drive.google.com/file/d/19llCKYmBA1i5g1Ru2xmC4wjHpVVVruyx/view?usp=drive_link'
+              className="py-3 rounded-lg px-7 bg-linearOrangee"
+              href="https://drive.google.com/file/d/19llCKYmBA1i5g1Ru2xmC4wjHpVVVruyx/view?usp=drive_link"
             >
               Download CV
             </Link>
-            <button className='py-3 rounded-lg px-7 bg-linearPurple'>
+            <button className="py-3 rounded-lg px-7 bg-linearPurple">
               Contact Me
             </button>
           </div>
         </div>
-        <div className='flex justify-center max-h-[350px] flex-1 maxsm:max-w-[250px]'>
+        <div className="flex justify-center max-h-[380px] h-full flex-1 maxsm:max-w-[280px]">
           <Image
-            alt='avatar'
-            width={350}
-            height={350}
-            src='/me.png'
-            className='rounded-lg   object-cover content-center bg-no-repeat'
+            alt="avatar"
+            width={340}
+            height={380}
+            src="/me.png"
+            className="rounded-lg h-[370px]   object-cover content-center bg-no-repeat"
           />
         </div>
       </div>
