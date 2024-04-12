@@ -1,69 +1,22 @@
-
-import { FormGroup } from "@components/form";
-import { Input } from "@components/input";
-import { Label } from "@components/label";
-import { Heading } from "@components/text";
-import { TextArea } from "@components/textarea";
 import { contacts } from "@constants/data";
-import classNames from "@utils/className";
-import emailjs from "emailjs-com";
 import Image from "next/image";
 import Link from "next/link";
-import { FormEvent, useRef, useState } from "react";
-
+import ContactForm from "./contact/contact-form";
 
 const HomeContact = () => {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [done, setDone] = useState(false);
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!formRef.current) return;
-    try {
-      setDone(true);
-      await emailjs.sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
-        formRef.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
-      );
-    } catch (error) {
-      console.log(error);
-    } finally {
-      formRef.current.reset();
-      setDone(false);
-    }
-  };
+
   return (
-    <section className="py-10">
-      <div className="layout-container">
-        <div className="text-center">
-          <Heading>Get in touch</Heading>
-          <p>We look forward to hearing from you!</p>
-        </div>
-        <div className="grid gap-6 mt-10 place-items-center lg:grid-cols-2">
-          <form ref={formRef} onSubmit={handleSubmit} autoComplete="false">
-            <FormGroup>
-              <Label>Your name</Label>
-              <Input placeholder="John" name="user_name" required />
-            </FormGroup>
-            <FormGroup>
-              <Label>Your email</Label>
-              <Input type="email" placeholder="John@gmail.com" name="user_email" required />
-            </FormGroup>
-            <FormGroup>
-              <Label>Messager</Label>
-              <TextArea placeholder="I love you" name="message" required rows={2} />
-            </FormGroup>
-            <button
-              type="submit"
-              className={classNames(
-                "w-full text-center rounded h-11 bg-purple9c",
-                done && "cursor-not-allowed"
-              )}
-            >
-              {done ? "Sending..." : "Send"}
-            </button>
-          </form>
+    <section className="py-10  relative">
+      
+      <div className="layout-container relative">
+      <div className="hidden lg:flex flex-col items-center absolute top-24 -right-8">
+        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
+          CONTACT
+        </span>
+        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
+      </div>
+        <div className="grid gap-12 mt-10 place-items-center lg:grid-cols-2">
+          <ContactForm />
           <div>
             <h3>Other places</h3>
             <ul className="mt-5">

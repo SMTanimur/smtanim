@@ -12,7 +12,7 @@ const HomeAboutMe = () => {
           <p className="max-w-[650px] my-6 leading-[34px] text-lg">
             Hello! I'm Tanim, a passionate self-taught Full Stack developer from
             Bangladesh. I build things for the web & mobile. I develop web
-            applications, mobile applications & desktop applications. Passionate
+            applications. Passionate
             about new technologies and problem-solving. I am available for any
             kind of job opportunity that suits my interests.
           </p>
