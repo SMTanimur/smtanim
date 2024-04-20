@@ -29,7 +29,7 @@ const HomeAboutMe = () => {
           <div className="flex mt-6 gap-x-3">
             <Link
               className="py-3 rounded-lg px-7 bg-linearOrangee"
-              href="https://drive.google.com/file/d/19llCKYmBA1i5g1Ru2xmC4wjHpVVVruyx/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1QxOqxvV38pRMA5AMDqqHhTCLNa7eLsqb/view?usp=drive_link"
             >
               Download CV
             </Link>
